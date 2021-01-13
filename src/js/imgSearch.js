@@ -21,10 +21,7 @@ function onSearch(e) {
 
   pixabay.resetPage();
   clearHits();
-  pixabay.fetchHits().then((hits) => {
-    appendHits(hits);
-    pixabay.incrementPage();
-  });
+  observer.observe(scroll);
 }
 
 function appendHits(hits) {
@@ -50,4 +47,3 @@ const onEntry = (entries) => {
 const observer = new IntersectionObserver(onEntry, {
   rootMargin: "160px",
 });
-observer.observe(scroll);
